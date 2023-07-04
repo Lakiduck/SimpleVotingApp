@@ -2,4 +2,21 @@ services:
   redis:
     image: "redis:alpine"
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:${REDIS_PORT}"
+    networks:
+      votingnetwork:
+        ipv4_address: ${REDIS_IP}
+  votes:
+    build: ./votes/
+    depends_on:
+      - redis
+    ports:
+      - "3000:3000"
+    networks:
+      - votingnetwork
+networks:
+  votingnetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: ${SUBNET}

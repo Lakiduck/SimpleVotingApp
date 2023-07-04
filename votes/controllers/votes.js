@@ -1,8 +1,11 @@
 import { createClient } from 'redis';
+import 'dotenv/config';
 
 var submitVote = async function(vote){
+    var urlString = "redis://" + process.env.REDIS_IP + ":" + process.env.REDIS_PORT
+    
     const client = createClient({
-        url: 'redis://127.0.0.1:6379'
+        url: urlString
     });
     client.on('error', err => console.log('Redis Client Error', err));
 
