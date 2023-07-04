@@ -8,3 +8,8 @@ One at root context with the following variables
 REDIS_IP=<YOUR REDIS IP ADDRESS>
 REDIS_PORT=<YOUR REDIS PORT>
 SUBNET=<DESIRED SUBNET FOR DOCKER USER DEFINED BRIDGE NETWORK>
+
+One at ./votes context with the following variables
+
+REDIS_IP=<YOUR REDIS IP ADDRESS>
+REDIS_PORT=<YOUR REDIS PORT>
