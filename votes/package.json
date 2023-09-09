@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node server.js",
     "prestart-dev": "docker compose up -d",
     "start-dev": "nodemon server.js"
@@ -32,6 +32,10 @@
     "redis": "^4.6.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "@types/chai": "^4.3.5",
+    "chai": "^4.3.7",
+    "chai-json-schema": "^1.5.1",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.1"
   }
 }
