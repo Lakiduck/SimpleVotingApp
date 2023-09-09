@@ -7,7 +7,9 @@ services:
       votingnetwork:
         ipv4_address: ${REDIS_IP}
   votes:
-    build: ./votes/
+    build: 
+      context: ./votes/
+      target: prod
     depends_on:
       - redis
     ports:
