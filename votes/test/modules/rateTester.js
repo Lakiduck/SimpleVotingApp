@@ -13,6 +13,7 @@ var getReq = async function(url, count, duration){
             method: "GET"
         });
         resStatus = response.status;
+        console.log("callback: " + resStatus);
     }
 
     let id = setInterval(getCallBack, delay, url);
