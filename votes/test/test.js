@@ -2,14 +2,17 @@ import chai, { assert, expect } from 'chai';
 import jsonSchema from 'chai-json-schema';
 chai.use(jsonSchema);
 import votes from '../controllers/votes.js';
+import rateTester from './modules/rateTester.js';
+import 'dotenv/config';
 
 var testCase = await votes("Zac Butters");
 
+const URI = "http://" + process.env.VOTING_SERVICE_IP + ":3000/";
+
+let status = await rateTester(URI, 100, 180000);
+
 describe('Brownlow Votes Type', () => 
 {
-
-    
-    console.log(testCase);
 
     const ZacTestOutcome = {
         "Zac Butters":1
@@ -25,6 +28,15 @@ describe('Brownlow Votes Type', () =>
 
     it('check result is not null', () => {
         assert.jsonSchema(testCase, badResult);
+    })
+}
+)
+
+describe('DoS Tests', () => 
+{
+    console.log("test: " + status);
+    it('check / get call hits limit', () => {
+        expect(status).to.be.equal(429);
     })
 }
 )

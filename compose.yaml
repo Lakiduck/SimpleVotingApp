@@ -15,7 +15,8 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - votingnetwork
+      votingnetwork:
+        ipv4_address: ${VOTING_SERVICE_IP}
 networks:
   votingnetwork:
     driver: bridge
