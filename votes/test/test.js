@@ -7,7 +7,7 @@ import 'dotenv/config';
 
 var testCase = await votes("Zac Butters");
 
-const URI = "http://" + process.env.VOTING_SERVICE_IP + ":3000/";
+const URI = "http://" + process.env.VOTING_SERVICE_IP + ":3000/req";
 
 let status = await rateTester(URI, 100, 60000);
 

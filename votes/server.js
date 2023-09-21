@@ -19,9 +19,12 @@ const getLimiter = rateLimit({
 });
 
 app.get('/', getLimiter, function (req, res) {
-  console.log(req.rateLimit);
   res.sendFile(join(dirname(__filename), "./public/votes.html"));
 })
+
+app.get('/req',function (req,res){
+ res.json(req);
+});
 
 app.post('/submit', async function (req, res) {
   var vote = req.body.BrownlowFavourites;
