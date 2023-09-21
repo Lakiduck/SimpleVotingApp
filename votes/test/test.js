@@ -34,7 +34,6 @@ describe('Brownlow Votes Type', () =>
 
 describe('DoS Tests', () => 
 {
-    console.log("test: " + status);
     it('check / get call hits limit', () => {
         expect(status).to.be.equal(429);
     })
