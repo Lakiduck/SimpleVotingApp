@@ -1,0 +1,8 @@
+build-job:
+  stage: build
+  script:
+    - echo "TBC"
+test-job:
+  stage: test
+  script:
+    - echo "Run Container Tests"

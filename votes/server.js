@@ -22,10 +22,6 @@ app.get('/', getLimiter, function (req, res) {
   res.sendFile(join(dirname(__filename), "./public/votes.html"));
 })
 
-app.get('/req',function (req, res){
-  res.send(req.ip);
-});
-
 app.post('/submit', async function (req, res) {
   var vote = req.body.BrownlowFavourites;
   var result = await votes(vote);
