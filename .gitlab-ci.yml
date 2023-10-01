@@ -1,7 +1,9 @@
 build-job:
   stage: build
+  image:
+    name: "https://hub.docker.com/_/docker:latest"
   script:
-    - echo "TBC"
+    - ls
 test-job:
   stage: test
   script:
