@@ -6,7 +6,8 @@ build-job:
     - echo REDIS_IP=$REDIS_IP > .env
     - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
     - echo REDIS_PORT=$REDIS_PORT >> .env
-    - echo SUBNET=$SUBNET >> .env  
+    - echo SUBNET=$SUBNET >> .env
+    - cat .env  
     - cd ./votes
     - echo REDIS_IP=$REDIS_IP > .env
     - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
