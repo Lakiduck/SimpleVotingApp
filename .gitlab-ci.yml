@@ -3,6 +3,7 @@ build-job:
   image:
     name: "docker:latest"
   script:
+    - docker compose version
     - echo REDIS_IP=$REDIS_IP > .env
     - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
     - echo REDIS_PORT=$REDIS_PORT >> .env
