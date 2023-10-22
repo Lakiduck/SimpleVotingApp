@@ -1,3 +1,4 @@
+import os from 'node:os';
 
 /*Count is number of requests per minute
 if count=10, then the get request should be
@@ -13,7 +14,7 @@ var getReq = async function(url, count, duration){
             method: "GET"
         });
         resStatus = response.status;
-        //console.log("callback: " + resStatus);
+        console.log(os.hostname);
     }
 
     let id = setInterval(getCallBack, delay, url);
