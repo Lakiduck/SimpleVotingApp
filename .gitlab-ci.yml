@@ -21,4 +21,5 @@ build-job:
 test-job:
   stage: test
   script:
-    - ls
+    - cd ./votes
+    - cat .env
