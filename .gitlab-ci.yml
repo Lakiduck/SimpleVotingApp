@@ -2,6 +2,8 @@ build-job:
   stage: build
   image:
     name: "docker:latest"
+  services:
+    - alias: docker
   script:
     - docker compose version
     - echo REDIS_IP=$REDIS_IP > .env
