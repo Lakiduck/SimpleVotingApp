@@ -3,7 +3,7 @@ build-job:
   image:
     name: "docker:latest"
   services:
-    - name: hub.docker.com/_/docker
+    - name: docker:latest
       alias: docker
   script:
     - docker compose version
