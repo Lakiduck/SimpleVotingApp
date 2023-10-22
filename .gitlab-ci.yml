@@ -20,6 +20,24 @@ build-job:
     - docker compose up -d
 test-job:
   stage: test
+  image:
+    name: "docker:latest"
+  services:
+    - name: docker:latest
+      alias: docker
   script:
+    - docker compose version
+    - echo REDIS_IP=$REDIS_IP > .env
+    - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
+    - echo REDIS_PORT=$REDIS_PORT >> .env
+    - echo SUBNET=$SUBNET >> .env
+    - cat .env  
     - cd ./votes
-    - cat .env
+    - echo REDIS_IP=$REDIS_IP > .env
+    - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
+    - echo REDIS_PORT=$REDIS_PORT >> .env
+    - cd ..
+    - docker compose up -d
+    - cd ./votes
+    - docker buildx build -t tests --target test .
+    - docker run --network simplevotingapp_votingnetwork tests
