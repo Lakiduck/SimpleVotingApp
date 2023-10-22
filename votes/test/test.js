@@ -9,7 +9,7 @@ var testCase = await votes("Zac Butters");
 
 const URI = "http://" + process.env.VOTING_SERVICE_IP + ":3000/";
 
-let status = await rateTester(URI, 100, 60000);
+let status = await rateTester(URI, 100, 30000);
 
 describe('Brownlow Votes Type', () => 
 {
