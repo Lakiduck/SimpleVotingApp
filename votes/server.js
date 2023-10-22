@@ -19,6 +19,7 @@ const getLimiter = rateLimit({
 });
 
 app.get('/', getLimiter, function (req, res) {
+  console.log(req.rateLimit);
   res.sendFile(join(dirname(__filename), "./public/votes.html"));
 })
 

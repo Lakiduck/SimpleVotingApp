@@ -42,3 +42,4 @@ test-job:
     - cd ./votes
     - docker buildx build -t tests --target test .
     - docker run --network simplevotingapp_votingnetwork tests
+    - docker compose logs
