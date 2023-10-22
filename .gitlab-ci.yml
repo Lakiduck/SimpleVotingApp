@@ -27,6 +27,7 @@ test-job:
       alias: docker
   script:
     - docker compose version
+    - hostname
     - echo REDIS_IP=$REDIS_IP > .env
     - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
     - echo REDIS_PORT=$REDIS_PORT >> .env
