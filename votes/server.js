@@ -12,13 +12,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const getLimiter = rateLimit({
-  windowMs: 1*60*1000,
-  max: 20,
+  windowMs: 1 * 60 * 1000,
+  limit: 5,
   message: "Max Limit of Get Requests Received",
   standardHeaders: 'draft-7'
 });
 
 app.get('/', getLimiter, function (req, res) {
+  console.log(req.rateLimit);
   res.sendFile(join(dirname(__filename), "./public/votes.html"));
 })
 
