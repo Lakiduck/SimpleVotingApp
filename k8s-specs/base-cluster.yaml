@@ -1,0 +1,5 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: simple-voting-app
+networking:
+  serviceSubnet: "172.28.0.0/16"

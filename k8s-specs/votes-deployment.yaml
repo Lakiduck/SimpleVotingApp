@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: votes
+  name: votes
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      application: votes
+  template:
+    metadata:  
+      labels:
+         application: votes
+    spec:
+      containers:
+        - name: votes
+          image: lakiduck1992/votes:latest
+          ports:
+            - containerPort: 3000
+              name: votes 
