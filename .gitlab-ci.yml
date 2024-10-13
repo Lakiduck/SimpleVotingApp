@@ -15,7 +15,7 @@ build-job:
     - cd ./votes
     - echo REDIS_IP=$REDIS_IP > .env
     - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
-    - echo REDIS_PORT=$REDIS_PORT >> .env
+    - echo DB_CACHE_PORT=$REDIS_PORT >> .env
     - cd ..
     - docker compose up -d
 test-job:
@@ -36,7 +36,7 @@ test-job:
     - cd ./votes
     - echo REDIS_IP=$REDIS_IP > .env
     - echo VOTING_SERVICE_IP=$VOTING_SERVICE_IP >> .env
-    - echo REDIS_PORT=$REDIS_PORT >> .env
+    - echo DB_CACHE_PORT=$REDIS_PORT >> .env
     - cd ..
     - docker compose up -d
     - cd ./votes

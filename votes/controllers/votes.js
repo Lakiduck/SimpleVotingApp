@@ -2,8 +2,11 @@ import { createClient } from 'redis';
 import 'dotenv/config';
 
 var submitVote = async function(vote){
-    var urlString = "redis://" + process.env.REDIS_IP + ":" + process.env.REDIS_PORT
-    
+    //Had to change env var from REDIS_PORT to DB_CACHE_PORT as when it tried to select REDIS_PORT it gave the follow redis://<ip>:tcp://<ip>:6379 for my k8s implementation
+    //Env var selector was a bit iffy, think it's a bug with dotenv/config
+    //this didn't happen with docker compose deploy, unsure why
+    var urlString = "redis://" + process.env.REDIS_IP + ":" + process.env.DB_CACHE_PORT
+
     const client = createClient({
         url: urlString
     });
